@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be My Valentine 💖</title>
+</head>
+
+<body style="
+  margin:0;
+  height:100vh;
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+">
+
+<!-- PAGE 1 -->
+<div id="page1" style="
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:url('https://share.google/nhrvuADcYxfb3g8xJ') no-repeat center/cover;
+  text-align:center;
+">
+
+  <h1 style="color:white; text-shadow:2px 2px 6px black;">
+    Will you be my Valentine? 💕
+  </h1>
+
+  <div style="margin-top:30px;">
+    <button id="yesBtn"
+      onclick="showLove()"
+      style="
+        font-size:20px;
+        padding:15px 30px;
+        background:#ff4d6d;
+        color:white;
+        border:none;
+        border-radius:12px;
+        cursor:pointer;
+        transition:all 0.3s ease;
+      ">
+      YES 💖
+    </button>
+
+    <button id="noBtn"
+      onclick="growYes()"
+      style="
+        font-size:20px;
+        padding:15px 30px;
+        margin-left:20px;
+        background:#444;
+        color:white;
+        border:none;
+        border-radius:12px;
+        cursor:pointer;
+      ">
+      NO 💔
+    </button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" style="
+  height:100vh;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(to bottom, #ff758c, #ff7eb3);
+  color:white;
+  text-align:center;
+  padding:20px;
+">
+
+  <h1>💖 To My Valentine 💖</h1>
+
+  <p style="
+    max-width:700px;
+    font-size:18px;
+    line-height:1.6;
+    background:rgba(0,0,0,0.3);
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+  ">
+    I love you, for you I was made for,  
+    I will walk this path called life until the green leaves of eternity fall off  
+    and to you I will give my love until the hour glass of time runs out,  
+    and above all!  
+    <br><br>
+    To us, to the love we share and future we envision.
+  </p>
+
+  <div style="margin-top:30px; width:90%; max-width:400px;">
+    <iframe
+      src="https://www.instagram.com/reel/DSsxXA-iQ9I/embed"
+      width="100%"
+      height="480"
+      frameborder="0"
+      allowfullscreen
+      style="border-radius:15px;">
+    </iframe>
+  </div>
+
+</div>
+
+<script>
+  let size = 20;
+  let clicks = 0;
+
+  function growYes() {
+    size += 15;
+    clicks++;
+
+    let yes = document.getElementById("yesBtn");
+    yes.style.fontSize = size + "px";
+    yes.style.padding = (size / 2) + "px";
+
+    if (clicks >= 5) {
+      document.getElementById("noBtn").style.display = "none";
+    }
+  }
+
+  function showLove() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "flex";
+  }
+</script>
+
+</body>
+</html>
