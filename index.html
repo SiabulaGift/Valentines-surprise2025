@@ -1,127 +1,157 @@
-
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
-  <title>always and forever</title>
+<meta charset="UTF-8">
+<title>Always and Forever</title>
 </head>
+<body style="margin:0; background:black; overflow:hidden; font-family:Georgia, serif;">
 
-<body style="
-  margin:0;
-  height:100vh;
-  background:#050505;
-  overflow:hidden;
+<div id="darkness" style="
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:opacity 2s;
+z-index:5;">
+</div>
+
+<div id="bookContainer" style="
+position:fixed;
+top:50%;left:50%;
+transform:translate(-50%,-50%);
+width:80vw;
+max-width:500px;
+height:70vh;
+max-height:650px;
+background:#f5f0e6;
+border-radius:12px;
+box-shadow:0 0 120px rgba(255,180,100,0.4);
+display:none;
+overflow:hidden;
+transition:all 1s ease;">
+  
+  <div id="cover" style="
+  position:absolute;
+  width:100%;height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  color:#6b4e2e;
+  letter-spacing:3px;
+  text-align:center;
+  background:linear-gradient(145deg,#f8f3ea,#e9dfcc);
+  transition:transform 1.5s ease;
+  ">
+  always and forever
+  </div>
+
+  <div id="page1" style="
+  position:absolute;
+  width:100%;height:100%;
+  padding:40px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  opacity:0;
+  transition:opacity 1s;">
+  
+    <h2 style="color:#6b4e2e;">Will you be my Valentine?</h2>
+
+    <div style="margin-top:40px;">
+      <button id="yes1" style="
+      padding:10px 20px;
+      font-size:18px;
+      background:#b76e79;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:all 0.2s;">Yes</button>
+
+      <button id="yes2" style="
+      padding:10px 20px;
+      font-size:18px;
+      margin-left:20px;
+      background:#e0c3a3;
+      color:#6b4e2e;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:all 0.2s;">Yes</button>
+    </div>
+  </div>
+
+  <div id="finalPage" style="
+  position:absolute;
+  width:100%;height:100%;
+  padding:40px;
+  box-sizing:border-box;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family:Georgia, serif;
-">
-
-<div id="scene" style="
-  position:relative;
-  width:90%;
-  max-width:700px;
-  height:80%;
+  text-align:center;
+  color:#6b4e2e;
   opacity:0;
-">
-
-  <!-- Candle -->
-  <div id="candle" style="
-    position:absolute;
-    bottom:80px;
-    left:20%;
-    width:12px;
-    height:80px;
-    background:#f0e6b6;
-    border-radius:6px;
-    box-shadow:0 0 15px rgba(255,200,100,0.3);
-    opacity:0;
-  ">
-    <div id="flame" style="
-      position:absolute;
-      top:-28px;
-      left:-8px;
-      width:28px;
-      height:28px;
-      background: radial-gradient(circle at 50% 50%, #fff4c2 0%, #ffb347 60%, #ff5e00 100%);
-      border-radius:50%;
-      filter: blur(0.5px);
-      opacity:0;
-    "></div>
+  transition:opacity 2s;
+  line-height:1.6;">
+  
+  <div>
+  I love you, for you I was made for,<br><br>
+  I will walk this path called life until the green leaves of eternity fall off<br><br>
+  and to you I will give my love until the hour glass of time runs out,<br><br>
+  and above all! To us, to the love we share and future we envision.
   </div>
 
-  <!-- Candle Light Glow -->
-  <div id="light" style="
-    position:absolute;
-    width:600px;
-    height:600px;
-    left:5%;
-    bottom:0;
-    background:radial-gradient(circle, rgba(255,200,120,0.25) 0%, rgba(0,0,0,0.9) 70%);
-    pointer-events:none;
-    opacity:0;
-  "></div>
-
-  <!-- Book -->
-  <div id="book" style="
-    position:absolute;
-    bottom:60px;
-    left:50%;
-    transform:translateX(-50%) rotateY(-8deg) rotateX(6deg) scale(0.9);
-    width:340px;
-    height:440px;
-    background:#f8f2dc;
-    border-radius:18px;
-    box-shadow:
-      -15px 15px 40px rgba(0,0,0,0.7),
-      inset -15px 0 25px rgba(0,0,0,0.15);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:26px;
-    color:#b08d2f;
-    text-align:center;
-    letter-spacing:2px;
-    opacity:0;
-    transition:all 2s ease;
-  ">
-    always and forever
   </div>
 
 </div>
 
 <script>
-setTimeout(() => {
+setTimeout(()=>{
+  document.getElementById("darkness").style.opacity="0";
+  setTimeout(()=>{
+    document.getElementById("darkness").style.display="none";
+    document.getElementById("bookContainer").style.display="block";
+  },2000);
+},1500);
 
-  const scene = document.getElementById("scene");
-  scene.style.transition = "opacity 2s ease";
-  scene.style.opacity = 1;
+let cover = document.getElementById("cover");
+let page1 = document.getElementById("page1");
+let finalPage = document.getElementById("finalPage");
 
-  const candle = document.getElementById("candle");
-  const flame = document.getElementById("flame");
-  const light = document.getElementById("light");
-  const book = document.getElementById("book");
+cover.onclick = function(){
+  cover.style.transform="rotateY(-180deg)";
+  setTimeout(()=>{
+    cover.style.display="none";
+    page1.style.opacity="1";
+  },1500);
+}
 
-  candle.style.transition = "opacity 2s ease";
-  candle.style.opacity = 1;
+let yes1 = document.getElementById("yes1");
+let yes2 = document.getElementById("yes2");
 
-  flame.style.transition = "opacity 1.5s ease";
-  flame.style.opacity = 1;
+document.onmousemove = function(e){
+  let width = window.innerWidth;
+  let percent = e.clientX / width;
 
-  light.style.transition = "opacity 2s ease";
-  light.style.opacity = 1;
+  yes1.style.transform = "scale(" + (1 + percent*1.5) + ")";
+  yes2.style.transform = "scale(" + (1.5 - percent*1.5) + ")";
+}
 
-  setInterval(() => {
-    const flicker = 0.95 + Math.random() * 0.1;
-    flame.style.transform = `scale(${flicker}) translateY(${Math.random()*2-1}px)`;
-  }, 180);
-
-  setTimeout(() => {
-    book.style.opacity = 1;
-    book.style.transform = "translateX(-50%) rotateY(-8deg) rotateX(6deg) scale(1)";
-  }, 800);
-
-}, 1500);
+yes1.onclick = yes2.onclick = function(){
+  page1.style.opacity="0";
+  setTimeout(()=>{
+    finalPage.style.opacity="1";
+  },1000);
+}
 </script>
 
 </body>
-</html>
+  </html>
