@@ -1,157 +1,121 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Always and Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Always and Forever?</title>
 </head>
-<body style="margin:0; background:black; overflow:hidden; font-family:Georgia, serif;">
 
-<div id="darkness" style="
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:black;
+<body style="margin:0; background:#0a0a0a; font-family: 'Georgia', serif; overflow:hidden;">
+
+<!-- MAIN SCREEN -->
+<div id="main" style="
+height:100vh;
 display:flex;
-align-items:center;
+flex-direction:column;
 justify-content:center;
-transition:opacity 2s;
-z-index:5;">
+align-items:center;
+color:#f5e6d3;
+text-align:center;
+background:radial-gradient(circle at center, rgba(255,140,0,0.15) 0%, #0a0a0a 60%);
+transition:1s;
+">
+
+<h1 style="font-size:38px; letter-spacing:2px; margin-bottom:40px;">
+Always and Forever?
+</h1>
+
+<div>
+<button id="yesBtn" 
+style="
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+margin:10px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:0.3s;">
+Yes
+</button>
+
+<button id="noBtn" 
+style="
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+margin:10px;
+background:#444;
+color:white;
+cursor:pointer;
+transition:0.3s;">
+No
+</button>
 </div>
 
-<div id="bookContainer" style="
-position:fixed;
-top:50%;left:50%;
-transform:translate(-50%,-50%);
-width:80vw;
-max-width:500px;
-height:70vh;
-max-height:650px;
-background:#f5f0e6;
-border-radius:12px;
-box-shadow:0 0 120px rgba(255,180,100,0.4);
+</div>
+
+<!-- SECOND PAGE -->
+<div id="page2" style="
 display:none;
-overflow:hidden;
-transition:all 1s ease;">
-  
-  <div id="cover" style="
-  position:absolute;
-  width:100%;height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:32px;
-  color:#6b4e2e;
-  letter-spacing:3px;
-  text-align:center;
-  background:linear-gradient(145deg,#f8f3ea,#e9dfcc);
-  transition:transform 1.5s ease;
-  ">
-  always and forever
-  </div>
+height:100vh;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+color:#f5e6d3;
+background:radial-gradient(circle at center, rgba(255,140,0,0.2) 0%, #0a0a0a 70%);
+">
 
-  <div id="page1" style="
-  position:absolute;
-  width:100%;height:100%;
-  padding:40px;
-  box-sizing:border-box;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  opacity:0;
-  transition:opacity 1s;">
-  
-    <h2 style="color:#6b4e2e;">Will you be my Valentine?</h2>
+<div style="max-width:600px;">
+<h2 style="margin-bottom:30px;">My Love ❤️</h2>
 
-    <div style="margin-top:40px;">
-      <button id="yes1" style="
-      padding:10px 20px;
-      font-size:18px;
-      background:#b76e79;
-      color:white;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      transition:all 0.2s;">Yes</button>
+<p style="font-size:18px; line-height:1.8;">
+I love you, for you I was made for, I will walk this path called life until the green leaves of eternity fall off and to you I will give my love until the hour glass of time runs out, and above all! To us, to the love we share and future we envision.
+</p>
 
-      <button id="yes2" style="
-      padding:10px 20px;
-      font-size:18px;
-      margin-left:20px;
-      background:#e0c3a3;
-      color:#6b4e2e;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      transition:all 0.2s;">Yes</button>
-    </div>
-  </div>
-
-  <div id="finalPage" style="
-  position:absolute;
-  width:100%;height:100%;
-  padding:40px;
-  box-sizing:border-box;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:#6b4e2e;
-  opacity:0;
-  transition:opacity 2s;
-  line-height:1.6;">
-  
-  <div>
-  I love you, for you I was made for,<br><br>
-  I will walk this path called life until the green leaves of eternity fall off<br><br>
-  and to you I will give my love until the hour glass of time runs out,<br><br>
-  and above all! To us, to the love we share and future we envision.
-  </div>
-
-  </div>
-
+</div>
 </div>
 
 <script>
-setTimeout(()=>{
-  document.getElementById("darkness").style.opacity="0";
-  setTimeout(()=>{
-    document.getElementById("darkness").style.display="none";
-    document.getElementById("bookContainer").style.display="block";
-  },2000);
-},1500);
 
-let cover = document.getElementById("cover");
-let page1 = document.getElementById("page1");
-let finalPage = document.getElementById("finalPage");
+let yes = document.getElementById("yesBtn");
+let no = document.getElementById("noBtn");
+let main = document.getElementById("main");
+let page2 = document.getElementById("page2");
 
-cover.onclick = function(){
-  cover.style.transform="rotateY(-180deg)";
-  setTimeout(()=>{
-    cover.style.display="none";
-    page1.style.opacity="1";
-  },1500);
-}
+let yesSize = 20;
+let noSize = 20;
 
-let yes1 = document.getElementById("yes1");
-let yes2 = document.getElementById("yes2");
+no.addEventListener("click", function(){
 
-document.onmousemove = function(e){
-  let width = window.innerWidth;
-  let percent = e.clientX / width;
+    yesSize += 8;
+    noSize -= 3;
 
-  yes1.style.transform = "scale(" + (1 + percent*1.5) + ")";
-  yes2.style.transform = "scale(" + (1.5 - percent*1.5) + ")";
-}
+    yes.style.fontSize = yesSize + "px";
+    yes.style.padding = (15 + yesSize/2) + "px " + (35 + yesSize) + "px";
 
-yes1.onclick = yes2.onclick = function(){
-  page1.style.opacity="0";
-  setTimeout(()=>{
-    finalPage.style.opacity="1";
-  },1000);
-}
+    if(noSize > 8){
+        no.style.fontSize = noSize + "px";
+    } else {
+        no.style.display = "none";
+    }
+
+});
+
+yes.addEventListener("click", function(){
+
+    main.style.opacity = "0";
+
+    setTimeout(function(){
+        main.style.display = "none";
+        page2.style.display = "flex";
+    }, 800);
+
+});
+
 </script>
 
 </body>
-  </html>
+    </html>
